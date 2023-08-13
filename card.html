@@ -1,0 +1,421 @@
+<html>
+<head>
+  <meta name="viewport" content="width=800, initial-scale=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Kyul - Card</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=Nobile:400italic,700italic);
+    @import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+    * {
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+    }
+    body {
+      background: #E5E5E5;
+      margin: 0;
+      font-family: Arial;
+      font-size: 17px;
+      /* background-image: url("Ultah.png");
+      padding: 50px; */
+    }
+
+    #myVideo {
+      position: fixed;
+      right: 0;
+      left: 0;
+      zoom: 79%;
+      top: 0;
+      bottom: 0;
+      min-width: 100%; 
+      min-height: 50%;
+    }
+
+    .content {
+      position: fixed;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      color: #f1f1f1;
+      width: 100%;
+      padding: 20px;
+    }
+
+    #myBtn {
+      width: 200px;
+      font-size: 18px;
+      padding: 10px;
+      border: none;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    #myBtn:hover {
+      background: #ddd;
+      color: black;
+    }
+
+    #btnMusic {
+      width: 200px;
+      font-size: 18px;
+      padding: 10px;
+      border: none;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    #btnMusic:hover {
+      background: #ddd;
+      color: black;
+    }
+
+    #nextPage {
+      width: 200px;
+      font-size: 18px;
+      padding: 10px;
+      border: none;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+      position: absolute;
+      right: 30px; /* Posisi dari sebelah kanan */
+      bottom: 30px; /* Posisi dari bawah */
+    }
+
+    #nextPage:hover {
+      background: #ddd;
+      color: black;
+    }
+
+    #card-front {
+      color: #262929;
+    }
+
+    #card, #card-front, #card-inside {
+      height: 480px;
+    }
+
+    .wrap {
+      padding: 1.5em 2.5em;
+      height: 100%;
+    }
+
+    #card-front, #card-inside {
+      width: 60%;
+      -webkit-box-shadow: 2px 2px 30px rgba(0, 0, 0, .25), 0 0 1px rgba(0, 0, 0, .5);
+      -moz-box-shadow: 2px 2px 30px rgba(0, 0, 0, .25), 0 0 1px rgba(0, 0, 0, .5);
+      box-shadow: 2px 2px 30px rgba(0, 0, 0, .25), 0 0 1px rgba(0, 0, 0, .5);
+      position: absolute;
+      left: 50%;
+    }
+
+    #card-inside .wrap {
+      background: #262929;
+      -webkit-box-shadow: inset 2px 0 1px rgba(0, 0, 0, .05);
+      -moz-box-shadow: inset 2px 0 1px rgba(0, 0, 0, .05);
+      box-shadow: inset 2px 0 1px rgba(0, 0, 0, .05);
+    }
+
+    #card {
+      max-width: 860px;
+      margin: 0 auto;
+      transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+      perspective: 5000px;
+      -moz-perspective: 5000px;
+      -webkit-perspective: 5000px;
+      position: relative;
+    }
+
+    #card h1 {
+      text-align: center;
+      font-family: 'Nobile', sans-serif;
+      font-style: italic;
+      font-size: 70px;
+      text-shadow: 
+          4px 4px 0px rgba(0, 0, 0, .8), /* Shadow hitam dengan opacity 0.8 */
+          1px 1px 0 rgba(255, 200, 200, 255),
+          2px 2px 0 rgba(255, 150, 150, 255),
+          3px 3px 0 rgba(255, 125, 125, 255);
+      color: #FFF;
+    }
+
+
+    #card-inside {
+      font-size: 1.1em;
+      line-height: 1.4;
+      font-family: 'Nobile';
+      color: #faf6f5;
+      font-style: italic;
+    }
+
+    p {
+    margin-top: 1em;
+    }
+
+    p:first-child {
+    margin-top: 0;
+    }
+
+    p.signed {
+    margin-top: 1.5em;
+    text-align: center;
+    font-family: 'Dancing Script', sans-serif;
+    font-size: 1.5em;
+    }
+
+    #card-front {
+    background-color: #444444; /* Warna hitam */
+    background-image: linear-gradient(top, #444444 0%, #B0B0B0 100%); /* Gradien hitam ke abu-abu */
+    transform-origin: left;
+    -moz-transform-origin: left;
+    -webkit-transform-origin: left;
+    transition: transform 1s linear;
+    -moz-transition: -moz-transform 1s linear;
+    -webkit-transition: -webkit-transform 1s linear;
+    position: relative;
+    }
+
+
+
+    #card-front .wrap {
+    transition: background 1s linear;
+    -moz-transition: background 1s linear;
+    -webkit-transition: background 1s linear;
+    }
+
+    #card-front button {
+    position: absolute;
+    bottom: 1em;
+    right: -12px;
+    background: rgb(7, 9, 15);
+    color: #FFF;
+    font-family: 'Nobile', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: .5em;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, .25), 0 0 1px rgba(0, 0, 0, .4);
+    -moz-box-shadow: 2px 2px 3px rgba(0, 0, 0, .25), 0 0 1px rgba(0, 0, 0, .4);
+    -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, .25), 0 0 1px rgba(0, 0, 0, .4);
+    }
+
+    #card-front button:hover,
+    #card-front button:focus {
+    background: rgb(12, 6, 6);
+    }
+
+    #close {
+    display: none;
+    }
+
+    #card.open-fully #close,
+    #card-open-half #close {
+    display: inline;
+    }
+
+    #card.open-fully #open {
+    display: none;
+    }
+
+    #card.open-half #card-front,
+    #card.close-half #card-front {
+    transform: rotateY(-90deg);
+    -moz-transform: rotateY(-90deg);
+    -webkit-transform: rotateY(-90deg);
+    }
+
+    #card.open-half #card-front .wrap {
+    background-color: rgba(0, 0, 0, .5);
+    }
+
+    #card.open-fully #card-front,
+    #card.close-half #card-front {
+    background: #262929;
+    }
+
+    #card.open-fully #card-front {
+    transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    }
+
+    #card.open-fully #card-front .wrap {
+    background-color: rgba(0, 0, 0, 0);
+    }
+
+    #card.open-fully #card-front .wrap *,
+    #card.close-half #card-front .wrap * {
+    display: none;
+    }
+
+    footer {
+    max-width: 500px;
+    margin: 40px auto;
+    font-family: 'Nobile', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #888;
+    text-align: center;
+    }
+
+  </style>
+  </head>
+<body>
+
+  <!-- <div style="visibility: hidden;">
+    <embed src="lagu.mp3" autostart="true" loop="true">
+  </div>    -->
+
+  <video autoplay muted loop id="myVideo">
+    <source src="HomeScreen.mp4" type="video/mp4">
+  </video>
+
+  <audio autoplay id="myMusic">
+    <source src="Gyutto.mp3" type="audio/mp3">
+  </audio>
+  
+  <!-- Optional: some overlay text to describe the video -->
+  <div class="content">
+    <!-- <h1>Kubawain pacar kamu ni XD</h1> -->
+    <h1>Button Video & Music cuma buat kontrol video sama music kalo ga ke play.. Kalo udah kelar baca baru klik "Next"</h1>
+    <!-- Use a button to pause/play the video with JavaScript -->
+    <button id="myBtn" onclick="myFunction()">Video</button>
+    <button id="btnMusic" onclick="mFunc()">Music</button>
+    <button id="nextPage" onclick="nextPage()">Next</button>
+    <!-- <button id="btnMusic" onclick="mPlay()" type="button">Play Music</button>
+    <button id="btnPause" onclick="mPause()" type="button">Pause Music</button> -->
+    <!-- <input type="button" value="sound" onclick="playMusic()" /> -->
+  </div>
+
+  <div id="card">
+    <div id="card-inside">
+      <div class="wrap">
+        <p>P Wr Wb... </p>
+        <p>Bujett ada yang ultah ges hari ini !!<br>
+          +1 Tahun umur equals -1 Tahun idup right?<br>
+          Akun kok langganan banned :v <br>
+          Kurang2 in Entokesisnya bang biar ga
+          kena warning terus kawoakwoa.
+          Jan marah2 bang kata2 diatas ni kan FAKTA :v 
+          Dahlah segini aja nanti panjangnya ada di? dmn hayoo :D. <br>
+          Klik tombol "Next" aja klo penasaran
+        </p>
+            Sekali lagi met ultah bang yak
+       
+        <center><h4>from</h4></center>
+        <p class="signed">Aby / Emile / Lucy / Enki / Whatever..</p>
+        
+      </div>
+    </div>
+    <div id="card-front">
+      <div class="wrap">
+        <h1> Happy Birthday Bang Strimer </h1>
+      </div>
+      <button id="open">&gt;</button>
+      <button id="close">&lt;</button>
+    </div>
+  </div>
+  <script>
+    (function() {
+  function $(id) {
+    return document.getElementById(id);
+  }
+
+  var card = $('card'),
+      openB = $('open'),
+      closeB = $('close'),
+      timer = null;
+  console.log('wat', card);
+  openB.addEventListener('click', function () {
+    card.setAttribute('class', 'open-half');
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(function () {
+      card.setAttribute('class', 'open-fully');
+      timer = null;
+    }, 1000);
+  });
+
+  closeB.addEventListener('click', function () {
+    card.setAttribute('class', 'close-half');
+    if (timer) clearTimerout(timer);
+    timer = setTimeout(function () {
+      card.setAttribute('class', '');
+      timer = null;
+    }, 1000);
+  });
+
+}());
+
+  // Get the video
+  var video = document.getElementById("myVideo");
+            
+  // Get the button
+  var btn = document.getElementById("myBtn");
+  
+  // Pause and play the video, and change the button text
+  function myFunction() {
+    if (video.paused) {
+      video.play();
+      btn.innerHTML = "Pause Video";
+    } else {
+      video.pause();
+      btn.innerHTML = "Play Video";
+    }
+  }
+
+  var audio = document.getElementById("myMusic")
+
+  var btnM = document.getElementById("btnMusic");
+
+  // function mPlay(){
+  //   // var audio = new Audio('lagu.mp3');
+  //     audio.play();
+      
+  // }
+
+  function mFunc(){
+    if (audio.paused) {
+      audio.play();
+      btnM.innerHTML = "Pause Music";
+    } else {
+      audio.pause();
+      btnM.innerHTML = "Play Music";
+    }
+
+    // if(audio.paused){
+    //   audio.play();
+    //   btnM.innerHTML = "Music Pause";
+    // } else {
+    //   audio.pause();
+    //   btnM.innerHTML = "Music Play";
+    // }
+    
+  }
+
+  function nextPage() {
+    var targetPage = "vid_yt.html";
+    window.location.href = targetPage;
+  }
+
+  </script>
+
+<!-- <div style="visibility: visible;">
+<embed src="lagu.mp3" autostart="true" loop="true">
+</div>
+<div style="visibility: visible;">
+<embed src="lagu.mp3" autostart="true" loop="true">
+</div> -->
+
+<!-- <audio controls autoplay>
+  <source src="lagu.mp3" type="audio/mp3">
+</audio> -->
+
+  </body>
+  </html>
