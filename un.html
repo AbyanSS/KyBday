@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kyul - Ujian Nasional</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* body {
+        background-image: url("Ultah.png");
+        } */
+        body{
+            margin: 0;
+            font-family: Arial;
+            font-size: 17px;
+        }
+        img{
+            position: static;
+            right: 0;
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 100%;
+        }
+        #myVideo {
+            position: fixed;
+            right: 0;
+            left: 0;
+            zoom: 79%;
+            top: 0;
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 50%;
+        }
+        .content {
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            padding: 20px;
+        }
+
+        #myBtn {
+            width: 200px;
+            font-size: 18px;
+            padding: 10px;
+            border: none;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #myBtn:hover {
+            background: #ddd;
+            color: black;
+        }
+
+        #musicBtn {
+            width: 200px;
+            font-size: 18px;
+            padding: 10px;
+            border: none;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #musicBtn:hover {
+            background: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop id="myVideo">
+        <source src="HomeScreens.mp4" type="video/mp4">
+    </video>
+    <audio autoplay id="myMusic">
+        <source src="VCT_Champion.mp3" type="audio/mp3">
+    </audio>
+    <div class="content">
+        <h1>BUTTON APA NIH !? | Sebaiknya klik button "Music" dulu sih kalo kataku mah...</h1>
+        <button id="myBtn" onclick="ujian()">Clik Me</button>
+        <button id="musicBtn" onclick="controllMusic()">Music</button>
+      </div>
+<script>
+    function ujian(){
+        var a=prompt("Umur maneh hari ini? (contoh : 17)");
+        var b=prompt("Nama warmindo? (notes : huruf kecil semua)");
+        var c=prompt("Kepanjangan wakydim? (notes : huruf kecil semua tanpa koma tapi pake spasi)");
+        var d=prompt("Nama mantan u di sma? (notes : huruf kecil semua)");
+        var e=prompt("Nama adek u paling kecil (notes : aku manggilnya dia apa)");
+        var f=prompt("Maneh kuliah dimana? (notes : singkatan aja)");
+        var g=prompt("Agent Valo yang selalu maneh pake? (notes : huruf kecil semua)");
+        var h=prompt("Role mu kalo maen mole? (notes : huruf kecil semua)");
+        var i=prompt("Hero yang selalu u pake kalo maen mole? (notes : huruf kecil semua)");
+        var j=prompt("Warna hoddie yang disebut keset Welcome? (notes : huruf kecil semua)");
+        var k=prompt("Waktu golden hour setelah dzuhur atau setelah maghrib? (notes : jawab dzuhur atau maghrib aja)");
+        var l=prompt("Kepanjangan nama Kuindo? (notes : huruf kecil semua)");
+        var m=prompt("Hero mole kesayangan kyul waktu SMA (notes : huruf kecil semua)");
+        var n=prompt("Skin mole pertama yang kyul beli (notes : sebut nama hero spasi warna)");
+        var o=prompt("Panggilan kyul waktu SMP (notes : huruf kecil semua)");
+        var p=prompt("Ejekan/panggilan kyul waktu kelas 10 (notes : huruf kecil semua)");
+        var q=prompt("Panggilan kesayangan cewe pertama kyul di SMA (notes : huruf kecil semua)");
+        var r=prompt("Tempat turun waktu main PUBGM di turnamen (notes : huruf kecil semua)");
+        var s=prompt("Nama squad mole kyul di SMA (notes : jawab singkatan aja, huruf kapital semua)");
+        var t=prompt("Tempat nongki fav waktu sma (notes : huruf kecil semua, jawaban 'mas ...')");
+        var u=prompt("Makanan favorit waktu istirahat (notes : huruf kecil semua)");
+        var v=prompt("Nama kucing pertama kyul (notes : huruf kecil semua)");
+        var w=prompt("Kerjaan kyul di warmindo (notes : 2 kata, huruf kecil semua)");
+        var x=prompt("Nama alamat kyul dulu (notes : 2 kata, huruf kecil semua)");
+        var y=prompt("Makanan sehari hari kyul dulu (notes : pilih antara mie ayam atau ayam geprek)")
+        var z=prompt("Game favorit kalo kumpul bareng anak OSIS (note : huruf kecil semua)");
+        var soal1=prompt("Kerjaan sampingan kyul waktu SMA (note : clue penjual .....)");
+        var soal2=prompt("Waifu kembar lima (notes : huruf kecil semua)");
+            if(a== "21" && b=="wakydim" && c=="dewak kyul dimas" && d=="naura" && e=="arsyad" && f=="unissula" && g=="reyna" && h=="mage" 
+            && i=="kagura" && j=="hijau" && k=="dzuhur" && l=="kucing warmindo" && m=="zilong" && n=="argus putih" && o=="zaky" && p=="tuyul" && q=="eneng" && r=="rozhok" 
+            && s=="SPDL" && t=="mas roy" && u=="kari spesial" && v=="bambang" && w=="juru masak" && x=="warung digital" && y=="ayam geprek" && z=="uno" && soal1=="penjual pulsa" 
+            && soal2=="miku")
+            {
+                window.location.href="firework.html";
+            }
+            else
+            {
+                alert("Ada yang salah blok coba ulangi lagi");
+                window.location.href="index.html";
+            }
+        }
+
+        var audio = document.getElementById("myMusic")
+        var btnM = document.getElementById("musicBtn");
+
+        function controllMusic(){
+            if (audio.paused) {
+            audio.play();
+            btnM.innerHTML = "Pause Music";
+            } else {
+            audio.pause();
+            btnM.innerHTML = "Play Music";
+            }
+        }
+</script>
+</body>
+</html>
