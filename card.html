@@ -5,6 +5,7 @@
   <title>Kyul - Card</title>
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
   <style type="text/css">
     @import url(https://fonts.googleapis.com/css?family=Nobile:400italic,700italic);
     @import url(https://fonts.googleapis.com/css?family=Dancing+Script);
@@ -31,63 +32,6 @@
       bottom: 0;
       min-width: 100%; 
       min-height: 50%;
-    }
-
-    .content {
-      position: fixed;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      color: #f1f1f1;
-      width: 100%;
-      padding: 20px;
-    }
-
-    #myBtn {
-      width: 200px;
-      font-size: 18px;
-      padding: 10px;
-      border: none;
-      background: #000;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    #myBtn:hover {
-      background: #ddd;
-      color: black;
-    }
-
-    #btnMusic {
-      width: 200px;
-      font-size: 18px;
-      padding: 10px;
-      border: none;
-      background: #000;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    #btnMusic:hover {
-      background: #ddd;
-      color: black;
-    }
-
-    #nextPage {
-      width: 200px;
-      font-size: 18px;
-      padding: 10px;
-      border: none;
-      background: #000;
-      color: #fff;
-      cursor: pointer;
-      position: absolute;
-      right: 30px; /* Posisi dari sebelah kanan */
-      bottom: 30px; /* Posisi dari bawah */
-    }
-
-    #nextPage:hover {
-      background: #ddd;
-      color: black;
     }
 
     #card-front {
@@ -286,9 +230,24 @@
     <!-- <h1>Kubawain pacar kamu ni XD</h1> -->
     <h1>Button Video & Music cuma buat kontrol video sama music kalo ga ke play.. Kalo udah kelar baca baru klik "Next"</h1>
     <!-- Use a button to pause/play the video with JavaScript -->
-    <button id="myBtn" onclick="myFunction()">Video</button>
-    <button id="btnMusic" onclick="mFunc()">Music</button>
-    <button id="nextPage" onclick="nextPage()">Next</button>
+    <button class="btn btn--light" onclick="myFunction()">
+      <span class="btn__inner">
+        <span class="btn__slide"></span>
+        <span class="btn__content" id="myBtn">Music</span>
+      </span>
+    </button>
+    <button class="btn btn--light" onclick="mFunc()">
+      <span class="btn__inner">
+        <span class="btn__slide"></span>
+        <span class="btn__content" id="btnMusic">Music</span>
+      </span>
+    </button>
+    <button class="btn btn--light" onclick="nextPage()">
+      <span class="btn__inner">
+        <span class="btn__slide"></span>
+        <span class="btn__content" id="nextPage">Music</span>
+      </span>
+    </button>
     <!-- <button id="btnMusic" onclick="mPlay()" type="button">Play Music</button>
     <button id="btnPause" onclick="mPause()" type="button">Pause Music</button> -->
     <!-- <input type="button" value="sound" onclick="playMusic()" /> -->
