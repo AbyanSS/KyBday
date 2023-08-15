@@ -4,22 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Kyul - Landing Page</title>
+  <title>Valorant Menu</title>
 </head>
 <body>
-    <video autoplay muted loop id="myVideo">
-        <source src="HomeScreens.mp4" type="video/mp4">
-    </video>
-    <audio autoplay id="myMusic">
-        <source src="VCT_Champion.mp3" type="audio/mp3">
-    </audio>
+  <video autoplay muted loop id="myVideo">
+    <source src="HomeScreens.mp4" type="video/mp4">
+  </video>
+  <audio autoplay id="myMusic">
+      <source src="VCT_Champion.mp3" type="audio/mp3">
+  </audio>
   <div class="menu-container">
     <div class="background"></div>
     <div class="content">
       <h1>Welcome to Valorant</h1>
       <p>Select your agent and gear up for battle!</p>
-      <button id="play-button" onclick="toIndex()">Play Now</button>
-      <button id="musicBtn" onclick="controllMusic()">Music</button>
+      <button class="btn">
+        <span class="btn__inner">
+          <span class="btn__slide"></span>
+          <span class="btn__content" id="play-button" onclick="toIndex()">Play Now</span>
+        </span>
+      </button>
+      <button class="btn btn--light">
+        <span class="btn__inner">
+          <span class="btn__slide"></span>
+          <span class="btn__content" id="musicBtn" onclick="controllMusic()">Music</span>
+        </span>
+      </button>
     </div>
   </div>
 
@@ -41,6 +51,5 @@
         }
     }
   </script>
-
 </body>
 </html>
